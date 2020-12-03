@@ -1,0 +1,57 @@
+stringyzzy="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_yzzy.cc -o SpinCurr_yzzy -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringzyyz="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_zyyz.cc -o SpinCurr_zyyz -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringzzyy="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_zzyy.cc -o SpinCurr_zzyy -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringyyzz="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_yyzz.cc -o SpinCurr_yyzz -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringxxxx="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_xxxx.cc -o SpinCurr_xxxx -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringyyyy="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_yyyy.cc -o SpinCurr_yyyy -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringzzzz="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_zzzz.cc -o SpinCurr_zzzz -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringxyxy="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_xyxy.cc -o SpinCurr_xyxy -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringxzxz="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_xzxz.cc -o SpinCurr_xzxz -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringyxyx="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_yxyx.cc -o SpinCurr_yxyx -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringyzyz="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_yzyz.cc -o SpinCurr_yzyz -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringzxzx="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_zxzx.cc -o SpinCurr_zxzx -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+stringzyzy="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensorV2 -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall SpinCurr_zyzy.cc -o SpinCurr_zyzy -L/home/feng.934/Codes/0.Codes/itensorV2/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+g++ $stringyzzy
+echo "g++ Spincurr_yzzy done"
+g++ $stringzyyz
+echo "g++ Spincurr_zyyz done"
+g++ $stringzzyy
+echo "g++ Spincurr_zzyy done"
+g++ $stringyyzz
+echo "g++ Spincurr_yyzz done"
+
+g++ $stringxxxx
+echo "g++ Spincurr_xxxx done"
+g++ $stringyyyy
+echo "g++ Spincurr_yyyy done"
+g++ $stringzzzz
+echo "g++ Spincurr_zzzz done"
+
+g++ $stringxyxy
+echo "g++ Spincurr_xyxy done"
+g++ $stringxzxz
+echo "g++ Spincurr_xzxz done"
+
+g++ $stringyxyx
+echo "g++ Spincurr_yxyx done"
+g++ $stringyzyz
+echo "g++ Spincurr_yzyz done"
+
+g++ $stringzxzx
+echo "g++ Spincurr_zxzx done"
+g++ $stringzyzy
+echo "g++ Spincurr_zyzy done"
+
