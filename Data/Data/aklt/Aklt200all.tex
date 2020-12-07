@@ -1,0 +1,359 @@
+\documentclass{standalone}
+\input{../Figures/palette}
+\usepackage{txfonts}
+\usepackage[mathscr]{euscript}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows, backgrounds, shapes}
+
+
+\newcommand{\mytick}[2]{\draw[thick,#2] (#1, 0.01) -- (#1, -0.15);}
+
+\begin{document}
+
+\pgfplotsset{every axis legend/.append style={
+			legend columns=1},
+}
+\tikzset{mylines/.style = {dashed, thick, black}}
+\begin{tabular}{c c c c}
+\begin{tikzpicture}
+\begin{axis}[name=plot1,
+xmin=0,
+%xmax=2.5,
+ymin=0,
+ylabel={$L^{-1}|\sum_i S^z_i|$},
+xlabel={$h_z$},
+%ylabel style = {yshift=-0.4cm},
+yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+tickpos=left,
+ytick align=inside,
+xtick={0, 1, 2, ..., 6.2},
+    ytick={0, 0.2, 0.4, ..., 1.0},
+title={(a)},
+title style = {yshift=-1cm, xshift=-2.9cm},
+legend style = {anchor = south east,at={(axis description cs: 0.95, 0.05)}}
+]
+%\addplot [draw = black, color = black, solid, mark options={solid}] table [y index = 1, col sep=space] {Statics/Sz_L24.txt};
+%\addplot [draw = virdark, color = virdark,densely dashed, mark options={solid}] table [y index = 1,col sep=space]  {Statics/Sz_L34.txt};
+%\addplot [draw = viryellowdark, color = viryellowdark,dashed, mark options={solid}] table [y index = 1,col sep=space]  {Statics/Sz_L44.txt};
+%\addplot [draw = black, color = black, dashed, mark options={solid}] table [y index = 1,col sep=space]  {Statics/Sz_L54.txt};
+\addplot [draw = black, color = black, solid, mark options={solid}] table [y index = 1,col sep=space]  {Statics/Sz_L64.txt};
+\addplot [draw = virmiddle, color = virmiddle,  solid, mark=o ] table [y index = 1,col sep=space]  {Statics/Sz_L80.txt};
+\legend{$L=64$, $L=80$}
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\begin{axis}[name=plot2,
+    %height=0.4\textwidth,
+    xmin=0,
+%    xmax=2.5,
+    ymin=0,
+    ylabel={$S_{vN}$},
+    xlabel={$h_z$},
+%    ylabel style = {yshift=-0.4cm},
+    yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+    xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+    tickpos=left,
+    ytick align=inside,
+    xtick={0, 1, 2, ..., 6.1},
+    ytick={ 0.2, 0.4, ..., 1.4},
+    title={(b)},
+    title style = {yshift=-1cm, xshift=-2.9cm},
+    legend style = {anchor = south east,at={(axis description cs: 1, 0.25)}}
+]
+%\addplot [draw = black, color = black, solid, mark options={solid}] table [col sep=space] {Statics/vN_L24.txt};
+%\addplot [draw = virmiddle, color = virmiddle,densely dashed, mark options={solid}] table [col sep=space]  {Statics/vN_L34.txt};
+%\addplot [draw = viryellowdark, color = viryellowdark,dashed, mark options={solid}] table [col sep=space]  {Statics/vN_L44.txt};
+%\addplot [draw = black, color = black, densely dashed, mark options={solid}] table [col sep=space]  {Statics/vN_L54.txt};
+\addplot [draw = black, color = black, solid, mark options={solid}] table [col sep=space]  {Statics/vN_L64.txt};
+\addplot [draw = virdark, color = virdark, solid, mark options={solid}] table [col sep=space]  {Statics/vN_L80.txt};
+\draw [mylines] (1.4,0) -- (1.4,1.5);
+\legend{$L=64$, $L=80$}
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\begin{loglogaxis}[name=plot3,
+	domain=2:40,
+	%height=0.4\textwidth,
+	xmin=2,
+	xmax=40,
+	ymin=1e-3,
+	ylabel={$S(R)$},
+	xlabel={$R$},
+	ylabel style = {yshift=-0.2cm},
+	%yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	%xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+	%tickpos=left,
+	%ytick align=inside,
+	xtick={1, 10, 40},
+	%ytick={0, 10, 20, ..., 40},
+	title={(c)},
+	title style = {yshift=-1cm, xshift=-2.9cm},
+	legend style = {anchor = south east,at={(axis description cs: 0.9, 0.1)}}
+	]
+	\addplot [draw = black, color = virmiddle, solid, mark = o, mark options={solid}] table [y index = 1, col sep=space] {Statics/Figure2DataCrs.txt};
+	\addplot [ color = black, mark = +, densely dashed] table [y index = 2,col sep=space]  {Statics/Figure2DataCrs.txt};
+	\addplot [draw = virdark, color = virdark, mark = *, dashed, mark options={solid}] table [y index = 3,col sep=space]  {Statics/Figure2DataCrs.txt};
+	\addplot [draw = viryellowdark, color = viryellowdark, solid, mark = +, mark options={solid}] table [y index = 4,col sep=space]  {Statics/Figure2DataCrs.txt};
+	\legend{$h=0.0$, $h=0.5$, $h=0.9$, $h=1.0$};
+\end{loglogaxis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\begin{axis}[name=plot4,
+	%height=0.4\textwidth,
+	xmin=0,
+	xmax=64,
+	ymin=0,
+	ylabel={$S(q)$},
+	xlabel={$q$},
+%	ylabel style = {yshift=-1.4cm},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=0},
+	tickpos=left,
+	ytick align=inside,
+	%    xtick={0, 0.5, 1, ..., 2.5},
+	%    ytick={10, 20, ..., 40},
+	title={(d)},
+	title style = {yshift=-1cm, xshift=-2.9cm},
+	legend style = {anchor = south east,at={(axis description cs: 1, 0.25)}}
+	]
+	\addplot[ color = black, mark = +, densely dashed] table [y index = 1, col sep=space] {Statics/Figure2DataCks.txt};
+	\addplot [draw = virmiddle, color = virmiddle,densely dashed, mark options={solid}] table [y index = 2,col sep=space]  {Statics/Figure2DataCks.txt};
+	\addplot [draw = virdark, color = virdark, solid, mark = +, mark options={solid}] table [y index = 3,col sep=space]  {Statics/Figure2DataCks.txt};
+	\addplot [draw = black, color = virdark, solid, mark options={solid}] table [y index = 4,col sep=space]  {Statics/Figure2DataCks.txt};
+	\addplot [draw = black, color = black, dashed, mark options={solid}] table [y index = 5,col sep=space]  {Statics/Figure2DataCks.txt};
+	\addplot [draw = virmiddle, color = virmiddle, solid, mark options={solid}] table [y index = 6,col sep=space]  {Statics/Figure2DataCks.txt};
+	\legend{$h=0.50$, $h=0.75$, $h=1.00$, $h=1.20$, $h=2.00$, $h=3.00$};
+\end{axis}
+\end{tikzpicture}
+\\
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,
+            title={(e)},
+	    title style = {yshift=-1cm, xshift=-2.8cm},
+            view={0}{90},   % not needed for `matrix plot*' variant
+            xlabel=$q$,
+            ylabel=$\omega$,
+            colormap name = viridis,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {size200/szszSz1/outSpectrum0.pgfplots};
+            %\draw [dashed, red] (2.094,0) -- (2.094,2.5);
+            %\draw [dashed, red] (3.141,0) -- (3.141,2.5);
+            \node at (0.4,1.15) [font=\fontsize{18pt}{18pt}\selectfont] {\textcolor{white}{(e)}};
+        \end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,
+            title={(f)},
+	    title style = {yshift=-1cm, xshift=-2.8cm},
+            view={0}{90},   % not needed for `matrix plot*' variant
+            xlabel=$q$,
+            ylabel=$\omega$,
+            colormap name = viridis,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {size200/spsm05/outSpectrum0.pgfplots};
+            %\draw [dashed, red] (2.094,0) -- (2.094,2.5);
+            %\draw [dashed, red] (3.141,0) -- (3.141,2.5);
+            \node at (0.4,1.15) [font=\fontsize{18pt}{18pt}\selectfont] {\textcolor{white}{(f)}};
+        \end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,        
+            title={(g)},
+	    title style = {yshift=-1cm, xshift=-2.8cm},
+            view={0}{90},   % not needed for `matrix plot*' variant
+            xlabel=$q$,
+            ylabel=$\omega$,
+            colormap name = viridis,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {size200/spsm1/outSpectrum0.pgfplots};
+            %\draw [dashed, red] (2.094,0) -- (2.094,2.5);
+            %\draw [dashed, red] (3.141,0) -- (3.141,2.5);
+            \node at (0.4,1.15) [font=\fontsize{18pt}{18pt}\selectfont] {\textcolor{white}{(g)}};
+        \end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,        
+            title={(h)},
+	    title style = {yshift=-1cm, xshift=-2.8cm},
+            view={0}{90},   % not needed for `matrix plot*' variant
+            xlabel=$q$,
+            ylabel=$\omega$,
+            colormap name = viridis,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {size200/spsm1_5/outSpectrum0.pgfplots};
+            %\draw [dashed, red] (2.094,0) -- (2.094,2.5);
+            %\draw [dashed, red] (3.141,0) -- (3.141,2.5);
+            \node at (0.4,1.15) [font=\fontsize{18pt}{18pt}\selectfont] {\textcolor{white}{(h)}};
+        \end{axis}
+\end{tikzpicture} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\
+\begin{tikzpicture}
+\begin{axis}[name=plot5,
+%height=0.4\textwidth,
+xmin=0.06,
+%xmax=2.5,
+ymin=0,
+ylabel={Intensity},
+xlabel={$\omega$},
+ylabel style = {yshift=-0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+tickpos=left,
+ytick align=inside,
+%xtick={0, 1, 2, ..., 6},
+%    ytick={0, 0.2, 0.4, ..., 1.0},
+title={(i)},
+title style = {yshift=-1cm, xshift=-2.8cm},
+legend style = {anchor = south east,at={(axis description cs: 0.95, 0.75)}}
+]
+%\addplot [draw = black, color = black, dashed, mark = o, mark options={solid}] table [y index = 1, col sep=space] {ulsSzVsField.txt};
+\addplot [draw = black, color = black, solid, mark = o, mark options={solid}] table [x index = 0, y index = 1,col sep=space]  {omegacuts/modesSz1.txt}; %mark = o
+	\legend{$q = \pi$};
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\begin{axis}[name=plot6,
+%height=0.4\textwidth,
+xmin=0.06,
+%xmax=2.5,
+ymin=0,
+ylabel={Intensity},
+xlabel={$\omega$},
+ylabel style = {yshift=-0.1cm},
+yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+tickpos=left,
+ytick align=inside,
+%xtick={0, 1, 2, ..., 6},
+%    ytick={0, 0.2, 0.4, ..., 1.0},
+title={(j)},
+title style = {yshift=-1cm, xshift=-3cm},
+legend style = {anchor = south east,at={(axis description cs: 0.95, 0.75)}}
+]
+%\addplot [draw = black, color = black, dashed, mark = o, mark options={solid}] table [y index = 1, col sep=space] {ulsSzVsField.txt};
+\addplot [draw = black, color = black, solid, mark = o, mark options={solid}] table [x index = 0, y index = 1,col sep=space]  {omegacuts/modes05.txt}; %mark = o
+	\legend{$q = \pi$};
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\begin{axis}[name=plot7,
+%height=0.4\textwidth,
+xmin=0.06,
+%xmax=2.5,
+ymin=0,
+ylabel={Intensity},
+xlabel={$\omega$},
+ylabel style = {yshift=-0.1cm},
+yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+tickpos=left,
+ytick align=inside,
+%xtick={0, 1, 2, ..., 6},
+%    ytick={0, 0.2, 0.4, ..., 1.0},
+title={(k)},
+title style = {yshift=-1cm, xshift=-2.8cm},
+legend style = {anchor = south east,at={(axis description cs: 0.95, 0.75)}}
+]
+%\addplot [draw = black, color = black, dashed, mark = o, mark options={solid}] table [y index = 1, col sep=space] {ulsSzVsField.txt};
+\addplot [draw = black, color = black, solid, mark = o, mark options={solid}] table [x index = 0, y index = 1,col sep=space]  {omegacuts/modes1.txt}; %mark = o
+	\legend{$q = \pi$};
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\begin{axis}[name=plot8,
+%height=0.4\textwidth,
+xmin=0.06,
+%xmax=2.5,
+ymin=0,
+ylabel={Intensity},
+xlabel={$\omega$},
+ylabel style = {yshift=-0.1cm},
+yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+tickpos=left,
+ytick align=inside,
+%xtick={0, 1, 2, ..., 6},
+%    ytick={0, 0.2, 0.4, ..., 1.0},
+title={(l)},
+title style = {yshift=-1cm, xshift=-2.8cm},
+legend style = {anchor = south east,at={(axis description cs: 0.95, 0.75)}}
+]
+%\addplot [draw = black, color = black, dashed, mark = o, mark options={solid}] table [y index = 1, col sep=space] {ulsSzVsField.txt};
+\addplot [draw = black, color = black, solid, mark = o, mark options={solid}] table [x index = 0, y index = 1,col sep=space]  {omegacuts/modes1_5.txt}; %mark = o
+	\legend{$q = \pi$};
+\end{axis}
+\end{tikzpicture}
+\end{tabular}
+\end{document}
+
+

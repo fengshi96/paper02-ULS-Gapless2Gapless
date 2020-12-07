@@ -1,0 +1,77 @@
+TotalNumberOfSites=200
+NumberOfTerms=3
+
+DegreesOfFreedom=1
+GeometryKind=chain
+GeometryOptions=ConstantValues
+Connectors 1 1
+
+DegreesOfFreedom=1
+GeometryKind=chain
+GeometryOptions=ConstantValues
+Connectors 1 1
+
+DegreesOfFreedom=1
+GeometryKind=chain
+GeometryOptions=ConstantValues
+Connectors 1 1 
+
+Model=Aklt
+HeisenbergTwiceS=2
+
+SolverOptions=CorrectionVectorTargeting,restart,twositedmrg,minimizeDisk,fixLegacyBugs
+RestartFilename=../inputField1_5size200
+Version=e953d056acae438cabd88c58df0d92133368d52e
+InfiniteLoopKeptStates=100
+FiniteLoops 2
+-198 500 2 
+ 198 500 2
+IsPeriodicX=0
+MagneticField 200
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50 1.50
+
+TridiagSteps=400
+TridiagEps=1e-9
+TruncationTolerance=1e-10,100
+CorrectionA=0
+DynamicDmrgType=0
+TSPSites 1 100 
+TSPLoops 1 0 
+TSPProductOrSum=sum
+CorrectionVectorFreqType=Real
+
+CorrectionVectorEta=0.05
+CorrectionVectorAlgorithm=Krylov
+Orbitals=1
+GsWeight=0.1
+CorrectionVectorOmega=$omega
+
+TSPOperator=expression
+OperatorExpression=splus
+
+#Observable=splus
+#OmegaBegin=0
+#OmegaStep=0.025
+#OmegaTotal=50
+#OmegaOffset=0
+
