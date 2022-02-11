@@ -1,0 +1,63 @@
+\documentclass{standalone}
+\usepackage{txfonts}
+\usepackage[mathscr]{euscript}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{every axis/.append style={
+		tick label style={font=\LARGE},
+		label style={font=\LARGE},
+		legend style={font=\LARGE},
+		title style={font=\LARGE}
+	}
+}
+
+\definecolor{virdark}{HTML}{440154}
+\definecolor{virmiddle}{HTML}{218F8D}
+\definecolor{viryellow}{HTML}{FDE725}
+\definecolor{mygray}{HTML}{AAAAAA}
+\definecolor{viryellowdark}{HTML}{807312}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows, backgrounds, shapes}
+
+
+\newcommand{\mytick}[2]{\draw[thick,#2] (#1, 0.01) -- (#1, -0.15);}
+
+\begin{document}
+
+\pgfplotsset{every axis legend/.append style={
+			legend columns=1},
+}
+\tikzset{mylines/.style = {dashed, thick, black}}
+\begin{tabular}{c}
+\begin{tikzpicture}
+\begin{axis}[name=plot1,
+xmin=0,
+%xmax=2.5,
+ymin=0,
+ylabel={$L^{-1}|\sum_i S^z_i|$},
+xlabel={$h$},
+%ylabel style = {yshift=-0.4cm},
+yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+tickpos=left,
+ytick align=inside,
+xtick={0, 1, 2, ..., 6.2},
+    ytick={0, 0.2, 0.4, ..., 1.0},
+title={(a)},
+title style = {yshift=-1cm, xshift=-2.9cm},
+legend style = {anchor = south east,at={(axis description cs: 0.95, 0.05)}}
+]
+%\addplot [draw = black, color = black, solid, mark options={solid}] table [y index = 1, col sep=space] {Statics/Sz_L24.txt};
+%\addplot [draw = virdark, color = virdark,densely dashed, mark options={solid}] table [y index = 1,col sep=space]  {Statics/Sz_L34.txt};
+%\addplot [draw = viryellowdark, color = viryellowdark,dashed, mark options={solid}] table [y index = 1,col sep=space]  {Statics/Sz_L44.txt};
+%\addplot [draw = black, color = black, dashed, mark options={solid}] table [y index = 1,col sep=space]  {Statics/Sz_L54.txt};
+\addplot [draw = black, color = black, solid, mark options={solid}] table [y index = 1,col sep=space]  {vN_L60.txt};
+\addplot [draw = virmiddle, color = virmiddle,  solid, mark=o ] table [y index = 1,col sep=space]  {vN_L200.txt};
+\legend{$L=64$, $L=80$}
+\end{axis}
+\end{tikzpicture}
+\end{tabular}
+\end{document}

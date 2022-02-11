@@ -1,0 +1,48 @@
+\documentclass{standalone}
+\input{../../Figures/palette}
+\usepackage{txfonts}
+\usepackage[mathscr]{euscript}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows, backgrounds, shapes}
+
+\newcommand{\mytick}[2]{\draw[thick,#2] (#1, 0.01) -- (#1, -0.15);}
+
+\begin{document}
+
+\pgfplotsset{every axis legend/.append style={
+			legend columns=1},
+}
+
+\begin{tabular}{lr}
+\begin{tikzpicture}
+\begin{axis}[name=plot1,
+%height=0.4\textwidth,
+		    width=\linewidth,
+            height=0.6\linewidth,
+xmin=0,
+xmax=200,
+ymin=0.5,
+ylabel={$EE$},
+xlabel={$n$},
+ylabel style = {yshift=-0.1cm},
+yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=0},
+tickpos=left,
+ytick align=inside,
+%xtick={0, 1, 2, ..., 6},
+%    ytick={0, 0.2, 0.4, ..., 1.0},
+title={(a)},
+title style = {yshift=-1cm, xshift=-4.8cm},
+legend style = {anchor = south east,at={(axis description cs: 0.75, 0.05)}}
+]
+%\addplot [draw = black, color = black, dashed, mark = o, mark options={solid}] table [y index = 1, col sep=space] {ulsSzVsField.txt};
+\addplot [draw = black, color = black, solid, mark = o, only marks, mark options={solid}] table [x index = 0, y index = 1,col sep=space]  {EntHeisenberg.dat};
+\addplot [color = red, style={thick}, no markers] table [x index = 0, y index = 1,col sep=space]  {fit.dat};
+	\legend{S=1/2 Heisenberg};
+\end{axis}
+\end{tikzpicture}
+\end{tabular}
+\end{document}
+
+

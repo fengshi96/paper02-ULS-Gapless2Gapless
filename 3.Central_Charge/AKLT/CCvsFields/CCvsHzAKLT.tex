@@ -1,0 +1,47 @@
+\documentclass{standalone}
+\input{../../../Figures/palette}
+\usepackage{txfonts}
+\usepackage[mathscr]{euscript}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows, backgrounds, shapes}
+
+
+\newcommand{\mytick}[2]{\draw[thick,#2] (#1, 0.01) -- (#1, -0.15);}
+
+\begin{document}
+
+\pgfplotsset{every axis legend/.append style={
+			legend columns=1},
+}
+
+\begin{tabular}{c}
+\begin{tikzpicture}
+\begin{axis}[name=plot1,
+%height=0.4\textwidth,
+xmin=0.0,
+%xmax=200,
+ymin=0,
+ylabel={$c$},
+xlabel={$h_z - h_{c1}(\beta)$},
+ylabel style = {yshift=-0.1cm},
+yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+tickpos=left,
+ytick align=inside,
+%xtick={0.0, 0.5, 1.0, ..., 3.0},
+%    ytick={0, 0.2, 0.4, ..., 1.0},
+%title={(h)},
+%title style = {yshift=-1cm, xshift=-2.8cm},
+legend style = {anchor = south east,at={(axis description cs: 0.91, 0.15)}}
+]
+%\addplot [draw = black, color = black, dashed, mark = o, mark options={solid}] table [y index = 1, col sep=space] {ulsSzVsField.txt};
+%\addplot [draw = black, color = black, solid, mark = o, mark options={solid}] table [x index = 0, y index = 1,col sep=space]  {EntAKLT080.dat};
+\addplot [draw = virmiddle, color = virmiddle, solid, mark = o, mark options={solid}] table [x index = 0, y index = 1, col sep = space ]  {entsAKLT.dat};
+	\legend{$h_z=0.80$};
+\end{axis}
+\end{tikzpicture}
+\end{tabular}
+\end{document}
+
+

@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{txfonts}
+\usepackage[mathscr]{euscript}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{every axis/.append style={
+		tick label style={font=\LARGE},
+		label style={font=\LARGE},
+		legend style={font=\LARGE},
+		title style={font=\LARGE}
+	}
+}
+
+\definecolor{virdark}{HTML}{440154}
+\definecolor{virmiddle}{HTML}{218F8D}
+\definecolor{viryellow}{HTML}{FDE725}
+\definecolor{mygray}{HTML}{AAAAAA}
+\definecolor{viryellowdark}{HTML}{807312}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows, backgrounds, shapes}
+
+
+\newcommand{\mytick}[2]{\draw[thick,#2] (#1, 0.01) -- (#1, -0.15);}
+
+\begin{document}
+
+\pgfplotsset{every axis legend/.append style={
+			legend columns=1},
+}
+\tikzset{mylines/.style = {dashed, thick, black}}
+\begin{tabular}{c}
+\begin{tikzpicture}
+\begin{loglogaxis}[name=plot1,
+	domain=2:40,
+	%height=0.4\textwidth,
+	xmin=2,
+	xmax=40,
+	ymin=1e-5,
+	ymax=5,
+	ylabel={$S(R)$},
+	xlabel={$R$},
+	ylabel style = {yshift=-0.2cm},
+	xtick={1, 10, 40},
+	title={(d)},
+	title style = {yshift=-1cm, xshift=-2.9cm},
+	legend style = {anchor = south east,at={(axis description cs: 0.5, 0.1)}}
+	]
+\addplot [draw = black, solid, mark = o, mark options={solid}] table [y index = 1, col sep=space] {Crs.txt};
+\addplot [draw = virmiddle, solid, mark = o, mark options={solid}] table [y index = 2, col sep=space] {Crs.txt};
+\addplot [draw = virdark, solid, mark = o, mark options={solid}] table [y index = 3, col sep=space] {Crs.txt};
+
+	\legend{$h=0.0$, $h=0.5$, $h=1.0$};
+\end{loglogaxis}
+\end{tikzpicture}
+\end{tabular}
+\end{document}

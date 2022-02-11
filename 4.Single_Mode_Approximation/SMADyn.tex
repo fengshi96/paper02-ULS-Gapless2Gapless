@@ -1,0 +1,356 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\input{../../Figures/palette.tex}
+%\usepgfplotslibrary{colormaps}
+\pgfplotsset{colormap/cool}
+
+\begin{document}
+\begin{tabular}{ccc}
+   \begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,
+            view={0}{90},   % not needed for `matrix plot*' variant
+            %xlabel=$q_x$,
+            %ylabel=Energy,
+            colormap name = cool,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            ticks=none
+            %axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {../size200/scaled/szszSz1/ScaledoutSpectrum0.pgfplots};
+        \end{axis}
+        
+	\begin{axis}[name=plot4,
+	%height=0.4\textwidth,
+	xmin=0.25,
+	xmax=0.75,
+	ymin=0,
+	ymax=0.5,
+	ylabel={$\omega_{SMA}$},
+	%xlabel={$q/2\pi$},
+%	ylabel style = {yshift=-1.4cm},
+        xtick={0, 0.25, 0.5, 0.75, 0.99},
+        xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=3},
+	tickpos=left,
+	ytick align=inside,
+	%xtick={16,32,48},
+	%xticklabels={0.5, 1.0, 1.5},
+	%    ytick={10, 20, ..., 40},
+	title={(a) $h=0.0$},
+	title style = {yshift=-5.8cm, xshift=-2cm},
+	legend style = {anchor = south east,at={(axis description cs: 1.0, 0.00)}}
+	]
+		\addplot [draw = black, mark = triangle] table [x index = 0, y index = 1, col sep=space] {AKLTdataSMA64.txt};
+		\addplot [draw = virmiddle, mark = triangle] table [x index = 0, y index = 1, col sep=space] {AKLTdataSMA100.txt};	
+		\addplot [draw = viryellowdark, mark = triangle] table [x index = 0, y index = 1, col sep=space] {AKLTdataSMA140.txt};
+		\addplot [draw = virdark, line width=1pt, mark = o] table [x index = 0, y index = 1, col sep=space] {AKLTdataSMA180.txt};		
+	\legend{$L = 64$, $L = 100$,$L = 140$,$L = 180$};
+\end{axis}        
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,
+            view={0}{90},   % not needed for `matrix plot*' variant
+            %xlabel=$q_x$,
+            %ylabel=Energy,
+            colormap name = cool,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            ticks=none,
+            xtick={0, 1.5708, 3.14159, 4.7123889, 6.25},
+            xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+            %axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {../size200/scaled/spsm08/ScaledoutSpectrum0.pgfplots};
+        \end{axis}
+        
+	\begin{axis}[name=plot4,
+	%height=0.4\textwidth,
+	xmin=0.25,
+	xmax=0.75,
+	ymin=0,
+	ymax=0.5,
+	%ylabel={$S(q)$},
+	%xlabel={$q/2\pi$},
+%	ylabel style = {yshift=-1.4cm},
+        xtick={0, 0.25, 0.5, 0.75, 0.99},
+        xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=3},
+	tickpos=left,
+	ytick align=inside,
+	%xtick={16,32,48},
+	%xticklabels={0.5, 1.0, 1.5},
+	%    ytick={10, 20, ..., 40},
+	title={(b) $h=0.8$},
+	title style = {yshift=-5.8cm, xshift=-2cm},
+	legend style = {anchor = south east,at={(axis description cs: 0.45, 0.01)}}
+	]
+		%\addplot [draw = virdark, line width=1pt, mark = o] table [x index = 0, y index = 1, col sep=space] {SMA/dataSMA64.txt};
+		\addplot [draw = black, mark = triangle] table [x index = 0, y index = 2, col sep=space] {AKLTdataSMA64.txt};
+		\addplot [draw = virmiddle, mark = triangle] table [x index = 0, y index = 2, col sep=space] {AKLTdataSMA100.txt};	
+		\addplot [draw = viryellowdark, mark = triangle] table [x index = 0, y index = 2, col sep=space] {AKLTdataSMA140.txt};
+		\addplot [draw = virdark, line width=1pt, mark = o] table [x index = 0, y index = 2, col sep=space] {AKLTdataSMA180.txt};		
+	%\legend{$L = 64$, $L = 100$,$L = 140$,$L = 180$};
+\end{axis}        
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,
+            view={0}{90},   % not needed for `matrix plot*' variant
+            %xlabel=$q_x$,
+            %ylabel=Energy,
+            colormap name = cool,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            ticks=none
+            %axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {../size200/scaled/spsm1_8/ScaledoutSpectrum0.pgfplots};
+        \end{axis}
+        
+	\begin{axis}[name=plot4,
+	%height=0.4\textwidth,
+	xmin=0.25,
+	xmax=0.75,
+	ymin=0,
+	ymax=0.5,
+	%ylabel={$S(q)$},
+	%xlabel={$q/2\pi$},
+%	ylabel style = {yshift=-1.4cm},
+        xtick={0, 0.25, 0.5, 0.75, 0.99},
+        xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=3},
+	tickpos=left,
+	ytick align=inside,
+	%xtick={16,32,48},
+	%xticklabels={0.5, 1.0, 1.5},
+	%    ytick={10, 20, ..., 40},
+	title={(c) $h=1.8$},
+	title style = {yshift=-5.8cm, xshift=-2cm},
+	legend style = {anchor = south east,at={(axis description cs: 0.45, 0.01)}}
+	]
+
+		\addplot [draw = black, mark = triangle] table [x index = 0, y index = 4, col sep=space] {AKLTdataSMA64.txt};
+		\addplot [draw = virmiddle, mark = triangle] table [x index = 0, y index = 4, col sep=space] {AKLTdataSMA100.txt};	
+		\addplot [draw = viryellowdark, mark = triangle] table [x index = 0, y index = 4, col sep=space] {AKLTdataSMA140.txt};
+		\addplot [draw = virdark, line width=1pt, mark = o] table [x index = 0, y index = 3, col sep=space] {AKLTdataSMA180.txt};		
+	%\legend{$L = 64$, $L = 100$,$L = 140$,$L = 180$};
+\end{axis}        
+\end{tikzpicture}
+\\
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=80,
+            view={0}{90},   % not needed for `matrix plot*' variant
+            %xlabel=$q_x$,
+            %ylabel=Energy,
+            colormap name = cool,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            ticks=none
+            %axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {../size200/scaled/spsm2_8/ScaledoutSpectrum0.pgfplots};
+        \end{axis}
+        
+	\begin{axis}[name=plot4,
+	%height=0.4\textwidth,
+	xmin=0.25,
+	xmax=0.75,
+	ymin=0,
+	ymax=0.5,
+	ylabel={$\omega_{SMA}$},
+	xlabel={$q$},
+%	ylabel style = {yshift=-1.4cm},
+        xtick={0, 0.25, 0.5, 0.75, 0.99},
+        xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=3},
+	tickpos=left,
+	ytick align=inside,
+	%xtick={16,32,48},
+	%xticklabels={0.5, 1.0, 1.5},
+	%    ytick={10, 20, ..., 40},
+	title={(d) $h=2.8$},
+	title style = {yshift=-5.8cm, xshift=-2cm},
+	legend style = {anchor = south east,at={(axis description cs: 0.45, 0.01)}}
+	]
+
+		\addplot [draw = black, mark = triangle] table [x index = 0, y index = 6, col sep=space] {AKLTdataSMA64.txt};
+		\addplot [draw = virmiddle, mark = triangle] table [x index = 0, y index = 6, col sep=space] {AKLTdataSMA100.txt};	
+		\addplot [draw = viryellowdark, mark = triangle] table [x index = 0, y index = 6, col sep=space] {AKLTdataSMA140.txt};
+		\addplot [draw = virdark, line width=1pt, mark = o] table [x index = 0, y index = 5, col sep=space] {AKLTdataSMA180.txt};		
+	%\legend{$L = 64$, $L = 100$,$L = 140$,$L = 180$};
+\end{axis}        
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=40,
+            view={0}{90},   % not needed for `matrix plot*' variant
+            %xlabel=$q_x$,
+            %ylabel=Energy,
+            colormap name = cool,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            ticks=none
+            %axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {../size200/scaled/spsm3_8/ScaledoutSpectrum0.pgfplots};
+        \end{axis}
+        
+	\begin{axis}[name=plot4,
+	%height=0.4\textwidth,
+	xmin=0.25,
+	xmax=0.75,
+	ymin=0,
+	ymax=0.5,
+	%ylabel={$\omega_{SMA}$},
+	xlabel={$q$},
+%	ylabel style = {yshift=-1.4cm},
+        xtick={0, 0.25, 0.5, 0.75, 0.99},
+        xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=3},
+	tickpos=left,
+	ytick align=inside,
+	%xtick={16,32,48},
+	%xticklabels={0.5, 1.0, 1.5},
+	%    ytick={10, 20, ..., 40},
+	title={(e) $h=3.8$},
+	title style = {yshift=-5.8cm, xshift=-2cm},
+	legend style = {anchor = south east,at={(axis description cs: 0.45, 0.01)}}
+	]
+
+		\addplot [draw = black, mark = triangle] table [x index = 0, y index = 8, col sep=space] {AKLTdataSMA64.txt};
+		\addplot [draw = virmiddle, mark = triangle] table [x index = 0, y index = 8, col sep=space] {AKLTdataSMA100.txt};	
+		\addplot [draw = viryellowdark, mark = triangle] table [x index = 0, y index = 8, col sep=space] {AKLTdataSMA140.txt};
+		\addplot [draw = virdark, line width=1pt, mark = o] table [x index = 0, y index = 7, col sep=space] {AKLTdataSMA180.txt};		
+	%\legend{$L = 64$, $L = 100$,$L = 140$,$L = 180$};
+\end{axis}        
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+        \begin{axis}[
+            point meta min=0, 
+            point meta max=20,
+            view={0}{90},   % not needed for `matrix plot*' variant
+            %xlabel=$q_x$,
+            %ylabel=Energy,
+            colormap name = cool,
+            colorbar,
+            colorbar style={
+                title= ,
+                yticklabel style={
+                    /pgf/number format/.cd,
+                    fixed,
+                    precision=0,
+                    fixed zerofill,
+                },
+            },
+            title= ,
+            enlargelimits=false,
+            ticks=none
+            %axis on top,
+        ]
+            \addplot [matrix plot*,point meta=explicit] file [meta=index 2] {../../uls/size200/scaled/spsm15/ScaledoutSpectrum0.pgfplots};
+        \end{axis}
+        
+	\begin{axis}[name=plot4,
+	%height=0.4\textwidth,
+	xmin=0.25,
+	xmax=0.75,
+	ymin=0,
+	ymax=0.5,
+	%ylabel={$\omega_{SMA}$},
+	xlabel={$q$},
+%	ylabel style = {yshift=-1.4cm},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=3},
+        xtick={0, 0.25, 0.5, 0.75, 0.99},
+        xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	tickpos=left,
+	ytick align=inside,
+	%xtick={16,32,48},
+	%xticklabels={0.5, 1.0, 1.5},
+	%    ytick={10, 20, ..., 40},
+	title={(f) $h=1.5$},
+	title style = {yshift=-5.8cm, xshift=-2.0cm},
+	legend style = {anchor = south east,at={(axis description cs: 1.0, 0.01)}}
+	]
+
+		\addplot [draw = black, mark = +] table [x index = 0, y index = 1, col sep=space] {ULSSMA64.txt};
+		\addplot [draw = red, mark = +, densely dashed] table [x index = 0, y index = 1, col sep=space] {ULSSMA64.txt};
+		\addplot [draw = virmiddle, mark = +, densely dashed] table [x index = 0, y index = 1, col sep=space] {ULSSMA90.txt};	
+		\addplot [draw = viryellowdark, mark = +, densely dashed] table [x index = 0, y index = 1, col sep=space] {ULSSMA120.txt};
+		\addplot [draw = virdark, mark = o] table [x index = 0, y index = 1, col sep=space] {ULSSMA210.txt};		
+	%\legend{$L = 64$, $L = 90$,$L = 120$,$L = 210$};		
+\end{axis}        
+\end{tikzpicture}
+\end{tabular}
+\end{document}
+
