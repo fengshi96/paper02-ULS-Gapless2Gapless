@@ -1,0 +1,91 @@
+\documentclass{standalone}
+\usepackage{txfonts}
+\usepackage[mathscr]{euscript}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{every axis/.append style={
+		tick label style={font=\LARGE},
+		label style={font=\LARGE},
+		legend style={font=\LARGE},
+		title style={font=\LARGE}
+	}
+}
+
+\definecolor{virdark}{HTML}{440154}
+\definecolor{virmiddle}{HTML}{218F8D}
+\definecolor{viryellow}{HTML}{FDE725}
+\definecolor{mygray}{HTML}{AAAAAA}
+\definecolor{viryellowdark}{HTML}{807312}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows, backgrounds, shapes}
+
+
+\newcommand{\mytick}[2]{\draw[thick,#2] (#1, 0.01) -- (#1, -0.15);}
+
+\begin{document}
+
+\pgfplotsset{every axis legend/.append style={
+			legend columns=1},
+}
+\tikzset{mylines/.style = {dashed, thick, black}}
+\begin{tabular}{cc}
+\begin{tikzpicture}
+\begin{axis}[name=plote,
+	%height=0.4\textwidth,
+	%xmin=0,
+	%xmax=6.28,
+	%ymax=-0.3,
+	ylabel={$\eta$},
+	xlabel={$h$},
+%	ylabel style = {yshift=-1.4cm},
+        %xtick={0, 1.5708, 3.14159, 4.7123889, 6.28},
+        %xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1},
+	tickpos=left,
+	ytick align=inside,
+	%    xtick={0, 0.5, 1, ..., 2.5},
+	%    ytick={10, 20, ..., 40},
+	title={(a)},
+	title style = {yshift=-1cm, xshift=-2.9cm},
+	%legend style = {anchor = south east,at={(axis description cs: 1, 0.25)}}
+	]
+	\addplot[ color = black, mark = o] table [x index = 0, y index = 1, col sep=space] {eta.dat};
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\begin{loglogaxis}[name=plotf,
+	%height=0.4\textwidth,
+	%xmin=0,
+	ymax=1.1,
+	ymin=6e-3,
+	ylabel={$\langle S_0^\alpha S_R^\alpha\rangle$},
+	xlabel={$R$},
+%	ylabel style = {yshift=-1.4cm},
+        %xtick={0, 1.5708, 3.14159, 4.7123889, 6.28},
+        %xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	%yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=0}, %, xshift=0.1cm},
+	%xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=0},
+	tickpos=left,
+	ytick align=inside,
+	%    xtick={0, 0.5, 1, ..., 2.5},
+	%    ytick={10, 20, ..., 40},
+	title={(b)},
+	title style = {yshift=-1cm, xshift=-2.9cm},
+	legend style = {anchor = south east,at={(axis description cs: 0.6, 0.04)}, nodes={scale=0.8}}
+	]
+	\addplot[ color = virmiddle, mark = +] table [x index = 0, y index = 1, col sep=space] {Crx_1.30.dat};
+	\addplot [draw = virmiddle, color = virmiddle, mark= o] table [x index = 0, y index = 1,col sep=space]  {Crz_1.30.dat};
+	\addplot [draw = virdark, color = virdark, solid, mark = +, mark options={solid}] table [x index = 0, y index = 1,col sep=space]  {Crx_3.00.dat};
+	\addplot [draw = black, color = virdark, solid, mark = o] table [x index = 0, y index = 1,col sep=space]  {Crz_3.00.dat};
+	\legend{$\alpha=x \;(h=1.3)$, $\alpha=z\; (h=1.3)$, $\alpha=x\; (h=3.0)$, $\alpha=z\; (h=3.0)$};
+\end{loglogaxis}
+\end{tikzpicture}
+\end{tabular}
+\end{document}
+
+

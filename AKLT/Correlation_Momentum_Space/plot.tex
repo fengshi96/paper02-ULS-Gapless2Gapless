@@ -1,0 +1,65 @@
+\documentclass{standalone}
+\usepackage{txfonts}
+\usepackage[mathscr]{euscript}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{every axis/.append style={
+		tick label style={font=\LARGE},
+		label style={font=\LARGE},
+		legend style={font=\LARGE},
+		title style={font=\LARGE}
+	}
+}
+
+\definecolor{virdark}{HTML}{440154}
+\definecolor{virmiddle}{HTML}{218F8D}
+\definecolor{viryellow}{HTML}{FDE725}
+\definecolor{mygray}{HTML}{AAAAAA}
+\definecolor{viryellowdark}{HTML}{807312}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows, backgrounds, shapes}
+
+
+\newcommand{\mytick}[2]{\draw[thick,#2] (#1, 0.01) -- (#1, -0.15);}
+
+\begin{document}
+
+\pgfplotsset{every axis legend/.append style={
+			legend columns=1},
+}
+\tikzset{mylines/.style = {dashed, thick, black}}
+\begin{tabular}{c}
+\begin{tikzpicture}
+\begin{axis}[name=plot1,
+	xmin=0,
+	xmax=6.28,
+	ymin=0,
+	ylabel={$S(q)$},
+	xlabel={$q$},
+%	ylabel style = {yshift=-1.4cm},
+        xtick={0, 1.5708, 3.14159, 4.7123889, 6.28},
+        xticklabels={$0$, $\pi/2$, $\phantom{/2}\pi\phantom{/2}$, $3\pi/2$, $2\pi$},
+	yticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=1}, %, xshift=0.1cm},
+	xticklabel style = {/pgf/number format/fixed, /pgf/number format/zerofill, /pgf/number format/precision=0},
+	tickpos=left,
+	ytick align=inside,
+	%    xtick={0, 0.5, 1, ..., 2.5},
+	%    ytick={10, 20, ..., 40},
+	title={(c)},
+	title style = {yshift=-1cm, xshift=-2.9cm},
+	legend style = {anchor = south east,at={(axis description cs: 1, 0.45)},nodes={scale=0.8}}
+	]
+	\addplot[ color = black, mark = +, densely dashed] table [x index = 7, y index = 1, col sep=space] {Cks.txt};
+	\addplot [draw = virmiddle, color = virmiddle,densely dashed, mark options={solid}] table [x index = 7, y index = 2,col sep=space]  {Cks.txt};
+	\addplot [draw = virdark, color = virdark, solid, mark = +, mark options={solid}] table [x index = 7, y index = 3,col sep=space]  {Cks.txt};
+	\addplot [draw = black, color = virdark, solid, mark options={solid}] table [x index = 7, y index = 4,col sep=space]  {Cks.txt};
+	\addplot [draw = black, color = black, dashed, mark options={solid}] table [x index = 7, y index = 5,col sep=space]  {Cks.txt};
+	\addplot [draw = virmiddle, color = virmiddle, solid, mark options={solid}] table [x index = 7, y index = 6,col sep=space]  {Cks.txt};
+	\legend{$h=0.50$, $h=0.75$, $h=1.00$, $h=1.20$, $h=2.00$, $h=3.00$};
+\end{axis}
+\end{tikzpicture}
+\end{tabular}
+\end{document}
